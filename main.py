@@ -27,9 +27,6 @@ def calcular_valor_multa(localidade, velocidade):
         else:
             return 0
         
-    else:
-        return None
-
 while True:
     print('Onde circulava o veiculo?')
     print('Escolha uma das opcoes abaixo:')
@@ -41,11 +38,11 @@ while True:
     try:
         localidade = int(input('Introduza o local: '))
     except ValueError:
-        print("Entrada inválida. Por favor, insira um número inteiro.")
+        print("Entrada inválida. Por favor, insira um número inteiro.\n")
         continue
 
     if localidade not in [1, 2, 3]:
-        print('Localidade inválida. Tente novamente.')
+        print('Localidade inválida. Tente novamente.\n')
         continue
 
     try:
@@ -55,14 +52,12 @@ while True:
         continue
 
     multa = calcular_valor_multa(localidade, velocidade)
-    if multa is None:
-        print('Localidade inválida.')
-    elif multa == 0:
+    if multa == 0:
         print('Sem multa')
     else:
-        print(f'Multa de {multa} euros')
+        print(f'Multa de {multa} euros\n')
 
-    continuar = input("Deseja calcular se Tem Multa (s/n): ").lower()
+    continuar = input("\nDeseja calcular se Tem Multa (s/n): ").lower()
     if continuar != 's':
         print("Seguranca em primeiro!")
         break
